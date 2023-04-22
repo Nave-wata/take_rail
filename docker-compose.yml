@@ -13,3 +13,12 @@ services:
     ports:
       - "3000:3000"
     command: npm start
+
+  extraction:
+    build:
+      context: ./extraction
+      dockerfile: Dockerfile
+    user: python
+    volumes:
+      - ./extraction:/app
+    tty: true
