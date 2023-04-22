@@ -8,11 +8,11 @@ services:
     environment:
       TZ: "Asia/Tokyo"
     volumes:
-      - ./gui:/app
-      - /app/node_modules
+      - ./gui:/usr/src/app
     ports:
       - "3000:3000"
     command: npm start
+    tty: true
     
   backend:
     build:
