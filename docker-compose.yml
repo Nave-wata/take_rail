@@ -1,0 +1,15 @@
+version: "3"
+services:
+  frontend:
+    build:
+      context: ./gui
+      dockerfile: Dockerfile
+    user: node
+    environment:
+      TZ: "Asia/Tokyo"
+    volumes:
+      - ./gui:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    command: npm start
