@@ -13,12 +13,3 @@ services:
     ports:
       - "3000:3000"
     command: npm start
-
-  backend:
-    build:
-      context: ./api
-      dockerfile: Dockerfile
-    user: python
-    volumes:
-      - ./api:/app
-    tty: true
