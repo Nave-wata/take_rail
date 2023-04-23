@@ -19,7 +19,7 @@ const App = () => {
           <Typography variant="h6" color="">
             ＊現在は京阪電車のみに対応しています。
           </Typography>
-          <TextField id="peparture-point" label="出発地" variant="outlined" />
+          <TextField id="departure-point" label="出発地" variant="outlined" />
           <br />
           <TextField id="destination-point" label="目的地" variant="outlined" />
 
