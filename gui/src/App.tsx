@@ -28,8 +28,10 @@ const StationCheck: any = () => {
 
   if (departurePointValue === "") {
     alert("出発地が入力されていません");
+    return null;
   } else if (destinationPointValue === "") {
     alert("目的地が入力されていません");
+    return null;
   } else {
     // @TODO 仮のデータなので、実際のデータに置き換える
     const departurePointCode = stationData.find(
@@ -115,7 +117,14 @@ const App = () => {
             variant="contained"
             onClick={() => {
               const result = StationCheck();
-              setResultDom(GetBestTransfer(result));
+              setResultDom(
+                () => {if (result !== null) {
+                   GetBestTransfer(result);
+                  } else {
+                    return null;
+                  }
+                }
+              );
             }}
           >
             検索
