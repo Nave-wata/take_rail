@@ -8,11 +8,15 @@ services:
     environment:
       TZ: "Asia/Tokyo"
     volumes:
-      - ./gui:/app
-      - /app/node_modules
+      - ./gui:/usr/src/app
     ports:
       - "3000:3000"
     command: npm start
+    tty: true
+    networks:
+      - mynetwork
+    depends_on:
+      - backend
 
   backend:
     build:
@@ -21,6 +25,10 @@ services:
     user: python
     volumes:
       - ./api:/app
+    ports:
+      - "8000:8000"
+    networks:
+      - mynetwork
     tty: true
 
   scraping:
@@ -31,3 +39,7 @@ services:
     volumes:
       - ./scraping:/app
     tty: true
+
+networks:
+  mynetwork:
+    driver: bridge

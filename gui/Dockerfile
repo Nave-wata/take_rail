@@ -1,12 +1,6 @@
 FROM node:18.16.0
-
-WORKDIR /app
-
-COPY . .
-
-RUN chown -R node:node /app
-
-USER node
-
-RUN npm install
-RUN npm run build
+WORKDIR /usr/src/app
+RUN chown -R node:node /usr/src/app # 追加するコマンド
+USER node # 追加するコマンド
+ENV TZ=Asia/Tokyo
+EXPOSE 3000
