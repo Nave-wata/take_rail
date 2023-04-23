@@ -70,18 +70,26 @@ const GetBestTransfer = (props: TransferProps) => {
       <Typography variant="h6">検索結果</Typography>
       <Grid container>
         <Grid item>
-          <Typography variant="h6" sx={{ml: 2}}>出発地:</Typography>
+          <Typography variant="h6" sx={{ ml: 2 }}>
+            出発地:
+          </Typography>
         </Grid>
         <Grid item>
-          <Typography variant="h6" sx={{ml: 2}}>{props.departurePoint}</Typography>
+          <Typography variant="h6" sx={{ ml: 2 }}>
+            {props.departurePoint}
+          </Typography>
         </Grid>
       </Grid>
       <Grid container>
         <Grid item>
-          <Typography variant="h6" sx={{ml: 2}}>目的地:</Typography>
+          <Typography variant="h6" sx={{ ml: 2 }}>
+            目的地:
+          </Typography>
         </Grid>
         <Grid item>
-          <Typography variant="h6" sx={{ml: 2}}>{props.destinationPoint}</Typography>
+          <Typography variant="h6" sx={{ ml: 2 }}>
+            {props.destinationPoint}
+          </Typography>
         </Grid>
       </Grid>
     </>
@@ -117,14 +125,13 @@ const App = () => {
             variant="contained"
             onClick={() => {
               const result = StationCheck();
-              setResultDom(
-                () => {if (result !== null) {
-                   GetBestTransfer(result);
-                  } else {
-                    return null;
-                  }
+              setResultDom(() => {
+                if (result !== null) {
+                  return GetBestTransfer(result);
+                } else {
+                  return null;
                 }
-              );
+              });
             }}
           >
             検索
