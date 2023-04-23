@@ -17,7 +17,7 @@ services:
       - mynetwork
     depends_on:
       - backend
-    
+
   backend:
     build:
       context: ./api
@@ -30,14 +30,14 @@ services:
     networks:
       - mynetwork
     tty: true
-    
-  extraction:
+
+  scraping:
     build:
-      context: ./extraction
+      context: ./scraping
       dockerfile: Dockerfile
     user: python
     volumes:
-      - ./extraction:/app
+      - ./scraping:/app
     tty: true
 
 networks:
